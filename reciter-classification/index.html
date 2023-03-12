@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reciter Classification</title>
+  <script src="reciters.js" defer></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      margin: 2rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    select,
+    button {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 0.25rem;
+      background-color: #f2f2f2;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    select:focus,
+    button:focus {
+      outline: none;
+    }
+
+    select {
+      width: 100%;
+    }
+
+    button {
+      margin-top: 1rem;
+      background-color: #007bff;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0069d9;
+    }
+
+    #result {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 0.25rem;
+      background-color: #f2f2f2;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    audio {
+      display: block;
+      margin-top: 1rem;
+    }
+
+    #verse-content {
+      margin-top: 2rem;
+    }
+
+    #verse-content p {
+      margin-bottom: 0.5rem;
+    }
+
+    #arabic-text {
+      font-size: 1.5rem;
+      direction: rtl;
+    }
+
+    #english-translation {
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+
+
+
+
+<body>
+  <div>
+    <label for="surah-select">Select a surah:</label>
+    <select name="surah" id="surah-select"></select>
+  </div>
+  <div>
+    <label id="verse-label" for="verse-select">Select a verse:</label>
+    <select name="verse" id="verse-select"></select>
+  </div>
+  <div>
+    <label for="reciter-select">Select a reciter:</label>
+    <select name="reciter" id="reciter-select">
+      <option value="AlHusary">AlHusary</option>
+      <option value="AlMinshawi">AlMinshawi</option>
+      <option value="AbdulBasit">AbdulBasit</option>
+      <option value="Random">Random</option>
+    </select>
+  </div>
+
+  <button type="button">Predict reciter</button>
+
+  <div id="result"></div>
+  <audio controls>
+    <source id="verse-audio" src="" type="audio/mpeg">
+  </audio>
+
+  <div id="verse-content">
+    <p id="arabic-text"></p>
+    <p id="english-translation"></p>
+  </div>
+
+</body>
+
+</html>
